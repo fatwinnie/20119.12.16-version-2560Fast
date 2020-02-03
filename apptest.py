@@ -306,7 +306,7 @@ class CamShow(QMainWindow,Ui_CamShow):
         b_arr[:,0] = np.sum(img2RGB[int(self.roi_Y.text()):int(int(self.roi_Y.text())+ int(self.roi_Height.text())),:,2],0) / int(self.roi_Height.text())
         Gray_arr[:,0] = np.sum(gray[int(self.roi_Y.text()):int(int(self.roi_Y.text())+ int(self.roi_Height.text())), : ],0 )/ int(self.roi_Height.text())
         
-        self.SavePixel_arr = np.zeros((2560,2),dtype=np.float16)  # SavePixel_arr 存Gray_arr
+        self.SavePixel_arr = np.zeros((2560,2),dtype=np.int)  # SavePixel_arr 存Gray_arr
         _index = [i for i in range(2560)]
         self.SavePixel_arr[:,0] = np.array(_index)
         self.SavePixel_arr[:,1] = Gray_arr[:,0]
@@ -542,7 +542,7 @@ class CamShow(QMainWindow,Ui_CamShow):
             _x = np.linspace(x_0,x_2560,2560)
      
 
-        self.save_arr = np.zeros((25600,2),dtype=np.float16)  # save_arr存Gray_arr
+        self.save_arr = np.zeros((25600,2),dtype=np.uint32)  # save_arr存Gray_arr
         
         
         
