@@ -546,11 +546,13 @@ class CamShow(QMainWindow,Ui_CamShow):
         
         
         
-        for i in range(2560): 
+        for i in range(640): 
             #self.save_arr[i,0] = (x_640 - x_0) / 640 * (i + 1)
-            
-            self.save_arr[i,0] = (x_2560 - x_0) / 2560 * i
             self.save_arr[i,1] = Gray_arr[i,0]
+            if num == 1:
+                self.save_arr[i,0] = self.p0 * i + self.p1
+            if num == 2:
+                self.save_arr[i,0] =math.pow(i,2) * self.p0 + self.p1 * i + self.p2
 
         self.avg = int(self.Avg_logout.text()) #user輸入平均次數
         
