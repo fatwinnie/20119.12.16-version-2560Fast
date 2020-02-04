@@ -542,7 +542,7 @@ class CamShow(QMainWindow,Ui_CamShow):
             _x = np.linspace(x_0,x_2560,2560)
      
 
-        self.save_arr = np.zeros((25600,2),dtype=np.uint32)  # save_arr存Gray_arr
+        self.save_arr = np.zeros((2560,2),dtype=np.uint32)  # save_arr存Gray_arr
         
         
         
@@ -563,7 +563,7 @@ class CamShow(QMainWindow,Ui_CamShow):
             
 
         
-        self.y_arr = np.zeros((2560,1),dtype=np.float16)
+        self.y_arr = np.zeros((2560,1),dtype=np.float16)  #y_arr = [] #存 getSave_arr相加的值
         for arr in self.getSave_arr:
             for i in range(2560):
                 self.y_arr[i,0] = np.add(self.y_arr[i,0], arr[i,1])
